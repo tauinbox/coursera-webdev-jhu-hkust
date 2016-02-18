@@ -18,8 +18,9 @@ section > div {
   position: absolute;
   right: -1px;
   top: -1px;
-  padding: 0px 15px 0px 15px;
   border: 1px solid black;
+  width: 150px;
+  text-align: center;
   font-weight: bold;
   font-size: 125%;
 }
