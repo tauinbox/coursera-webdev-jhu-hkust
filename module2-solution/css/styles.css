@@ -25,6 +25,10 @@ section > div {
   font-size: 125%;
 }
 
+body {
+  min-width: 152px; /*Not less than title size*/
+}
+
 #title1 {
   background-color: #D59898
 }
