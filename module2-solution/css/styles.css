@@ -15,15 +15,15 @@ section {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/****** Title section ******/
-section > div { 
+/****** Title Item ******/
+section > h2 { 
   position: absolute;
   right: -1px;
   top: -1px;
   border: 1px solid black;
   width: 150px;
+  margin: 0px;
   text-align: center;
-  font-weight: bold;
   font-size: 125%;
 }
 
