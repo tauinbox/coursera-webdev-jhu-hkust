@@ -30,6 +30,16 @@ div > h2 {
 	font-weight: bold;
 }
 
+.menu-articles h3 {
+	background-color: #cec669;
+	margin-bottom: 0px;
+	padding-top: 15px;
+	text-align: center;
+	font-family: 'Patrick Hand', cursive;
+	font-size: 1.7em;
+	font-weight: bold;
+}
+
 .menu-articles p {
 	background-color: #cec669;
 	padding: 15px;
