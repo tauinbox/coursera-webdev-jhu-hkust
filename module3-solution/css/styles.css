@@ -9,6 +9,7 @@ body {
 	font-family: 'Indie Flower', cursive;
 	color: white;
 	font-weight: bold;
+	text-shadow: 1px 1px 1px #222;
 }
 
 #header-nav {
@@ -20,6 +21,10 @@ body {
 
 .navbar-brand > a:hover {
 	text-decoration: none;
+}
+
+.navbar-brand h1:hover {
+	color: cyan;
 }
 
 div > h2 {
