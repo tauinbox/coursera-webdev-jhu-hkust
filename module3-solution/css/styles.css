@@ -1,4 +1,51 @@
+body {
+	background-color: #e5e5e5;
+}
+
 .navbar-brand h1 {
 	margin: 0px;
-	font-size: 1.75em;
+	/*font-size: 1.75em;*/
+	line-height: .5em;
+}
+
+#header-nav {
+	background-color: #9799b2;
+	border-radius: 0px;
+/*	border-color: #000;
+	border: 1px solid black;*/
+}
+
+.navbar-brand > a:hover {
+	text-decoration: none;
+}
+
+div > h2 {
+	margin-top: 0px;
+	color: #56371a;
+}
+
+.menu-articles p {
+	background-color: #cec669;
+	padding: 15px;
+}
+
+/********** Small devices only **********/
+@media (max-width: 768px) {
+
+	#collapsable-nav ul {
+		text-align: center;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-size: 1.75em;
+	}
+
+	#collapsable-nav {
+		background-color: #ffffff;
+	}
+
+/*	#collapsable-nav hr {
+		color: black;
+		background-color: black;
+		height: 1px;
+	}*/
 }
