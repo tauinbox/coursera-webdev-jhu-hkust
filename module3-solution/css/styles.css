@@ -33,6 +33,7 @@ div > h2 {
 	font-family: 'Indie Flower', cursive;
 	font-size: 2.5em;
 	font-weight: bold;
+	text-shadow: 1px 1px 1px #CEC669;
 }
 
 .menu-articles h3 {
