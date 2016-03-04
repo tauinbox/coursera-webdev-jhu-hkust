@@ -74,8 +74,8 @@ guessed = function() {
 }
 
 missed = function() {
-	alert("Game over!");
 	smile.style.backgroundColor = "red";
+	alert("Game over!");
 	removeEvent("click", guessed, smile);
 	removeEvent("click", missed, wrong);
 }
