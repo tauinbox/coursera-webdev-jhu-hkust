@@ -76,6 +76,7 @@ guessed = function() {
 missed = function() {
 	alert("Game over!");
 	removeEvent("click", guessed, smile);
+	removeEvent("click", missed, wrong);
 }
 
 setEvent = function(event, handler, object) {
