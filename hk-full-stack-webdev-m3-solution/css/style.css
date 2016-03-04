@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
+#gamefield {
+	position: relative;
+}
+
+#leftside, #rightside {
+	width: 49%;
+	margin: 1%;
+	height: 500px;
+	position: absolute;
+	padding: 10px;
+}
+#leftside {
+	top: 0px;
+	left: 0px;
+}
+
+#rightside {
+	border-left: 1px solid black;
+	top: 0px;
+	right: 0px;
+}
