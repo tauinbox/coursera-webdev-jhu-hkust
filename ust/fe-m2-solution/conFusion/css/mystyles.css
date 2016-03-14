@@ -23,6 +23,10 @@
     color:floralwhite;
 }
 
+.jumbotron a:hover {
+    text-decoration: none;
+}
+
 address {
     font-size:80%;
     margin:0px;
