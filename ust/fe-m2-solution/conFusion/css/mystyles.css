@@ -42,8 +42,12 @@ body {
      background: #303F9F;
 }
 
-.navbar-right > .form-group > span {
+.navbar-right > .checkbox {
     color: #fff;
+}
+
+.form-horizontal > .form-group > .col-sm-10 label {
+    padding-right: 10px;
 }
 
 .navbar-inverse .navbar-nav > .active > a,

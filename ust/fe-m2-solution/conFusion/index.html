@@ -53,12 +53,17 @@
           </li>
           <li><a href="contactus.html"><i class="fa fa-envelope-o"></i> Contact</a></li>
         </ul>
-        <form class="navbar-form navbar-right" role="search">
+        <form class="navbar-form navbar-right form-inline">
           <div class="form-group">
-            <input type="email" class="form-control" placeholder="Email">
-            <input type="password" class="form-control" placeholder="Password">
-            <input type="checkbox" aria-label="...">
-            <span>Remember</span>
+            <label for="login_email" class="sr-only">Email</label>
+            <input type="email" class="form-control" placeholder="Email" id="login_email">
+          </div>
+          <div class="form-group">
+            <label for="passw" class="sr-only">Password</label>
+            <input type="password" class="form-control" placeholder="Password" id="passw">
+          </div>
+          <div class="checkbox">          
+            <label for="remember"><input type="checkbox" id="remember"> Remember me </label>
           </div>
           <button type="submit" class="btn btn-info">Sign In</button>
         </form>
@@ -176,23 +181,40 @@
         <form class="form-horizontal" role="form">
           <div class="form-group">
             <label class="col-sm-2 control-label">Number of Guests</label>
-            <div style="padding:5px;" class="col-sm-10">
-              <label><input type="radio" name="qty" value="1"> 1 </label>
-              <label><input type="radio" name="qty" value="2"> 2 </label>
-              <label><input type="radio" name="qty" value="3"> 3 </label>
-              <label><input type="radio" name="qty" value="4"> 4 </label>
-              <label><input type="radio" name="qty" value="5"> 5 </label>
-              <label><input type="radio" name="qty" value="6"> 6 </label>
+            <div style="padding: 10px 0px 0px 0px;" class="col-sm-10">
+              <label><input type="radio" name="qty" value="1" checked="checked"> 1 </label>
+              <label><input type="radio" name="qty" value="2"> 2</label>
+              <label><input type="radio" name="qty" value="3"> 3</label>
+              <label><input type="radio" name="qty" value="4"> 4</label>
+              <label><input type="radio" name="qty" value="5"> 5</label>
+              <label><input type="radio" name="qty" value="6"> 6</label>
             </div>
           </div>
 
-          <div class="form-group">
+<!--           <div class="form-group">
             <label class="col-sm-2 control-label">Date and Time</label>
             <div style="padding:5px;" class="col-sm-10">
               <input type="date">
               <input type="time">
             </div>
-          </div>
+          </div> -->
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Date and Time</label>
+            <div style="padding-left: 0px;" class="col-sm-10">
+              <span style="padding-left: 0px;" class="col-xs-4 has-feedback">
+<!--                 <input type="date" class="form-control" name="date"> -->
+                <input type="text" placeholder="Date" class="form-control" name="date">
+                <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
+              </span>
+              <span class="col-xs-4 col-xs-offset-1 has-feedback">
+<!--                 <input type="time" class="form-control" name="time"> -->
+                <input type="text" placeholder="Time" class="form-control" name="time">                
+                <i class="glyphicon glyphicon-time form-control-feedback"></i>
+              </span>
+            </div>
+          </div>          
+
           <div class="form-group">
             <div class="col-sm-offset-2">
               <button type="Submit" class="btn btn-primary">Reserve</button>
