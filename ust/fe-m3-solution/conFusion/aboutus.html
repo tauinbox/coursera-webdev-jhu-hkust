@@ -23,7 +23,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="200"> <!-- Attributes for Scrollspy with Affix -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -94,7 +94,7 @@
          </div>
         </div> <!-- Breadcrumb Row -->
 
-        <div class="row row-content">
+        <div id="history" class="row row-content">
           <div class="col-xs-12 col-sm-6 col-lg-8">
             <h2>Our History</h2>
             <p>Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.</p>
@@ -132,7 +132,7 @@
           </div>
         </div> <!-- First Row -->
 
-        <div class="row row-content">
+        <div id="management" class="row row-content">
           <div class="col-xs-12">
             <h2>Top Management</h2>
             
@@ -178,7 +178,7 @@
           </div>
         </div> <!-- Second Row -->
 
-        <div class="row row-content">
+        <div id="corporate" class="row row-content">
           <div class="col-xs-12">
             <h2>Corporate Leadership</h2>
 
@@ -245,7 +245,7 @@
           </div>
         </div> <!-- Second Row Duplicate with another style -->    
 
-        <div class="row row-content">
+        <div id="facts" class="row row-content">
           <div class="col-xs-12">
             <h2>Facts &amp; Figures</h2>
             <div class="table-responsive">
@@ -286,6 +286,16 @@
 
         </div> <!-- Third Row -->
       </div> <!-- 10 columns of main content row -->
+
+      <!-- Scrollspy menu 2 columns at right-->
+      <nav class="hidden-xs col-sm-2" id="myScrollspy">
+        <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="400">
+          <li><a href="#history">Our History</a></li>
+          <li><a href="#management">Management</a></li>
+          <li><a href="#corporate">Corporate</a></li>          
+          <li><a href="#facts">Facts</a></li>
+        </ul>
+      </nav>
 
     </div> <!-- Main content row -->
   </div> <!-- Container -->
