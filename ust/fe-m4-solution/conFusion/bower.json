@@ -1,0 +1,29 @@
+{
+  "name": "conFusion",
+  "homepage": "http://tauinbox.github.io/test/ust/fe-m4-solution/conFusion",
+  "authors": [
+    "Alexander Tupavov <tauinbox@gmail.com>"
+  ],
+  "description": "Website for an awesome restaurant",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "conFusion",
+    "Fusion",
+    "Restaurant"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0"
+  }
+}
