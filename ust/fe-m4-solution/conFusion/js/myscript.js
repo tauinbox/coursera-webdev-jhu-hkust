@@ -13,5 +13,15 @@ $(document).ready(function() {
     // assign play button on click event
     $("#carousel-play").click(function(){
         $("#mycarousel").carousel('cycle');
-    });	
+    });
+
+    // assign Login button on click event to invoke modal
+    $("#loginButton").click(function(){
+    	$("#loginModal").modal('show');
+    });
+
+    // assign Reserve button on click event to invoke modal
+    $("#reserveButton").click(function(){
+    	$("#reserveModal").modal('show');
+    });    
 });
