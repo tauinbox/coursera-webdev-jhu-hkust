@@ -29,5 +29,24 @@ app.controller('menuController', function() {
                price:'2.99',
                description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
                comment: ''}];
+
     this.dishes = dishes;
+    this.tab = 1;
+    this.filtText = "";
+
+    this.select = function(setTab) {
+        this.tab = setTab;
+        if (setTab === 2)
+            this.filtText = "appetizer";
+        else if (setTab === 3)
+            this.filtText = "mains";
+        else if (setTab === 4)
+            this.filtText = "dessert";
+        else
+            this.filtText = "";
+    }
+
+    this.isSelected = function (checkTab) {
+        return (this.tab === checkTab);
+    }
 });
