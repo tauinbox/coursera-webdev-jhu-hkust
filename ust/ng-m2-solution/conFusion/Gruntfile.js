@@ -110,6 +110,16 @@ module.exports = function(grunt) {
 
 	});
 
-	grunt.registerTask('build', ['clean', 'jshint', 'copy']);
+	grunt.registerTask('build', [
+	'clean',
+    'jshint',
+    'useminPrepare',
+    'concat',
+    'cssmin',
+    'uglify',
+    'copy',
+    'filerev',
+    'usemin'
+	]);
 	grunt.registerTask('default',['build']);
 };
