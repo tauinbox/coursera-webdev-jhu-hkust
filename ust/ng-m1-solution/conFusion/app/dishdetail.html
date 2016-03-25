@@ -45,7 +45,8 @@
       </div> <!-- End of dishdetail section-->
 
       <div class="col-xs-9 col-xs-offset-1">
-        <span><strong>Customer Comments </strong></span> <span> Sort by: <input type="text" ng-model="ddCtrl.sorter"></span>
+        <span><strong>Customer Comments </strong></span>
+        <span> Sort by (rating/comment/author/date): <input type="text" ng-model="ddCtrl.sorter"></span>
         <blockquote ng-repeat="comment in ddCtrl.dish.comments | orderBy: ddCtrl.sorter">
           <p>{{comment.rating}} Stars</p>
           <p>{{comment.comment}}</p>
