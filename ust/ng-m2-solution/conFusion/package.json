@@ -2,7 +2,8 @@
   "name": "conFusion",
   "private": true,
   "devDependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
