@@ -39,18 +39,18 @@ app.controller('menuController', function() {
     this.select = function(setTab) {
         this.tab = setTab;
         if (setTab === 2)
-            this.filtText = "appetizer";
+          {this.filtText = "appetizer";}
         else if (setTab === 3)
-            this.filtText = "mains";
+          {this.filtText = "mains";}
         else if (setTab === 4)
-            this.filtText = "dessert";
+          {this.filtText = "dessert";}
         else
-            this.filtText = "";
-    }
+          {this.filtText = "";}
+    };
 
     this.isSelected = function (checkTab) {
         return (this.tab === checkTab);
-    }
+    };
 });
 
 app.controller('dishDetailController', function() {
