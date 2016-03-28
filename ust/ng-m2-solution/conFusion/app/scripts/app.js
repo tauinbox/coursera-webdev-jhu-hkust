@@ -57,3 +57,16 @@ app.controller('MenuController', ['$scope', function($scope) {
       $scope.showDetails = !$scope.showDetails;
     };
 }]);
+
+app.controller('ContactController', ['$scope', function($scope) {
+    $scope.feedback = {
+          mychannel:"", 
+          firstName:"", 
+          lastName:"", 
+          agree:false, 
+          email:"" };
+}]);
+
+app.controller('FeedbackController', ['$scope', function($scope) {
+
+}]);
