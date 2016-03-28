@@ -35,6 +35,7 @@ gulp.task('default', ['clean'], function() {
 
 
 // Add the code for the usemin, imagemin and copyfonts tasks
+
 gulp.task('usemin',['jshint'], function () {
   return gulp.src('./app/menu.html')
       .pipe(usemin({
@@ -59,3 +60,33 @@ gulp.task('copyfonts', ['clean'], function() {
    .pipe(gulp.dest('./dist/fonts'));
 });
 
+
+// Add the code for the watch and browserSync tasks
+
+// Watch
+gulp.task('watch', ['browser-sync'], function() {
+  // Watch .js files
+  gulp.watch('{app/scripts/**/*.js,app/styles/**/*.css,app/**/*.html}', ['usemin']);
+      // Watch image files
+  gulp.watch('app/images/**/*', ['imagemin']);
+
+});
+
+gulp.task('browser-sync', ['default'], function () {
+   var files = [
+      'app/**/*.html',
+      'app/styles/**/*.css',
+      'app/images/**/*.png',
+      'app/scripts/**/*.js',
+      'dist/**/*'
+   ];
+
+   browserSync.init(files, {
+      server: {
+         baseDir: "dist",
+         index: "menu.html"
+      }
+   });
+        // Watch any files in dist/, reload on change
+  gulp.watch(['dist/**']).on('change', browserSync.reload);
+});
