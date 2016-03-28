@@ -66,7 +66,7 @@ app.controller('ContactController', ['$scope', function($scope) {
           agree: false, 
           email: "" };
 
-    var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
+    var channels = [{value: "tel", label: "Tel."}, {value: "Email", label: "Email"}];
     $scope.channels = channels;
 
     $scope.invalidChannelSelection = false;
@@ -74,8 +74,10 @@ app.controller('ContactController', ['$scope', function($scope) {
 
 app.controller('FeedbackController', ['$scope', function($scope) {
     $scope.sendFeedback = function() {
+
       console.log($scope.feedback);
-      if ($scope.feedback.agree && ($scope.feedback.mychannel == "")&& !$scope.feedback.mychannel) {
+
+      if ($scope.feedback.agree && ($scope.feedback.mychannel == "") && !$scope.feedback.mychannel) {
         $scope.invalidChannelSelection = true;
         console.log('incorrect');
       }
