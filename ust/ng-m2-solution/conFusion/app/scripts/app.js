@@ -55,5 +55,5 @@ app.controller('MenuController', ['$scope', function($scope) {
     $scope.showDetails = false;
     $scope.toggleDetails = function() {
       $scope.showDetails = !$scope.showDetails;
-    }
+    };
 }]);
