@@ -15,4 +15,21 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync'),
     del = require('del');
 
-    
+
+// Add the code for the JSHint task, the Clean task and the default task
+gulp.task('jshint', function() {
+  return gulp.src('app/scripts/**/*.js')
+  .pipe(jshint())
+  .pipe(jshint.reporter(stylish));
+});
+
+// Clean
+gulp.task('clean', function() {
+    return del(['dist']);
+});
+
+// Default task
+gulp.task('default', ['clean'], function() {
+    gulp.start('usemin', 'imagemin','copyfonts');
+});
+
