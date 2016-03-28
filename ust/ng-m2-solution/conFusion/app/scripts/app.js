@@ -32,6 +32,7 @@ app.controller('MenuController', ['$scope', function($scope) {
                description:'A delectable, semi-sweet New York Style Cheese Cake, with Graham cracker crust and spiced with Indian cardamoms',
                comment: ''}];
 
+    $scope.dishes = dishes;
     $scope.tab = 1;
     $scope.filtText = "";
 
