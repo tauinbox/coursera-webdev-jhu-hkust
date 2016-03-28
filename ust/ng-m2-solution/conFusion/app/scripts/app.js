@@ -51,4 +51,9 @@ app.controller('MenuController', ['$scope', function($scope) {
     $scope.isSelected = function (checkTab) {
         return ($scope.tab === checkTab);
     };
+
+    $scope.showDetails = false;
+    $scope.toggleDetails = function() {
+      $scope.showDetails = !$scope.showDetails;
+    }
 }]);
