@@ -21,7 +21,7 @@
 
 <body>
 
-  <div class="container" ng-controller="ContactController">
+  <div class="container" ng-controller="ContactController"> <!-- MANAGED BY ContactController -->
     <div class="row">
       <div class="col-xs-12">
          <ul class="breadcrumb">
@@ -67,7 +67,7 @@
       <div class="col-xs-12">
         <h3>Send us your Feedback</h3> 
       </div>
-      <div class="col-xs-12 col-sm-9" ng-controller="FeedbackController">
+      <div class="col-xs-12 col-sm-9" ng-controller="FeedbackController"> <!-- MANAGED BY FeedbackController -->
         <!-- give the name and ng-submit to form -->
         <form class="form-horizontal" name="feedbackForm" ng-submit="sendFeedback()" novalidate>
           <div class="form-group" ng-class="{'has-error' : feedbackForm.firstname.$error.required && !feedbackForm.firstname.$pristine}">

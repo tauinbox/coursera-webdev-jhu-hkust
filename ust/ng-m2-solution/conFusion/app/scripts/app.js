@@ -83,8 +83,13 @@ app.controller('FeedbackController', ['$scope', function($scope) {
       }
       else {
         $scope.invalidChannelSelection = false;
-        $scope.feedback = {mychannel:"", firstName:"", lastName:"",
-                           agree:false, email:"" };
+        $scope.feedback = {
+          mychannel:"", 
+          firstName:"", 
+          lastName:"",
+          agree:false, 
+          email:"" };
+          
         $scope.feedback.mychannel="";
 
         $scope.feedbackForm.$setPristine();
