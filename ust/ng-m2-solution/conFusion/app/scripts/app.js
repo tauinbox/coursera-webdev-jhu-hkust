@@ -3,7 +3,7 @@
 angular.module('confusionApp', [])
 
 .controller('MenuController', ['$scope', function($scope) {
-  
+
   $scope.tab = 1;
   $scope.filtText = '';
   $scope.showDetails = false;
@@ -46,10 +46,10 @@ angular.module('confusionApp', [])
     comment: ''
   }
   ];
-  
+
   $scope.select = function(setTab) {
     $scope.tab = setTab;
-    
+
     if (setTab === 2) {
       $scope.filtText = "appetizer";
     }
@@ -67,7 +67,7 @@ angular.module('confusionApp', [])
   $scope.isSelected = function (checkTab) {
     return ($scope.tab === checkTab);
   };
-  
+
   $scope.toggleDetails = function() {
     $scope.showDetails = !$scope.showDetails;
   };
@@ -76,20 +76,20 @@ angular.module('confusionApp', [])
 .controller('ContactController', ['$scope', function($scope) {
 
   $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
-  
+
   var channels = [{value:"tel", label:"Tel."}, {value:"Email",label:"Email"}];
-  
+
   $scope.channels = channels;
   $scope.invalidChannelSelection = false;
-  
+
 }])
 
 .controller('FeedbackController', ['$scope', function($scope) {
-  
+
   $scope.sendFeedback = function() {
-    
+
     console.log($scope.feedback);
-    
+
     if ($scope.feedback.agree && ($scope.feedback.mychannel == "")) {
       $scope.invalidChannelSelection = true;
       console.log('incorrect');
@@ -144,30 +144,44 @@ angular.module('confusionApp', [])
      author:"25 Cent",
      date:"2011-12-02T17:57:28.556094Z"
    }
-   
+
    ]
  };
- 
+
  $scope.dish = dish;
- 
+
 }])
 
 .controller('DishCommentController', ['$scope', function($scope) {
+
+  //Step 1: Create a JavaScript object to hold the comment from the form
+  $scope.reply = {
+     rating: "",
+     comment: "",
+     author: "",
+     date: ""
+  };
+
+  $scope.submitComment = function () {
+
+      //Step 2: This is how you record the date
+      $scope.reply.date = new Date().toISOString();
+      
+      // Step 3: Push your comment into the dish's comment array
+      $scope.dish.comments.push($scope.reply);
+      
+      //Step 4: reset your form to pristine
+      $scope.commentForm.$setPristine();
+      
+      //Step 5: reset your JavaScript object that holds your comment
+      $scope.reply = {
+        rating: "",
+        comment:"",
+        author: "",
+        date: ""
+      };      
+  }
   
-            //Step 1: Create a JavaScript object to hold the comment from the form
-            
-            $scope.submitComment = function () {
-              
-                //Step 2: This is how you record the date
-                // "The date property of your JavaScript object holding the comment" = new Date().toISOString();
-                
-                // Step 3: Push your comment into the dish's comment array
-                $scope.dish.comments.push("Your JavaScript Object holding the comment");
-                
-                //Step 4: reset your form to pristine
-                
-                //Step 5: reset your JavaScript object that holds your comment
-              }
-            }])
+}])
 
 ;
