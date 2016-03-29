@@ -1,0 +1,3 @@
+bower_components/
+.tmp/concat/scripts/main.js
+.tmp/concat/styles/main.css
