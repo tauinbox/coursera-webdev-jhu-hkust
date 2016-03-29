@@ -90,7 +90,7 @@ angular.module('confusionApp', [])
 
     console.log($scope.feedback);
 
-    if ($scope.feedback.agree && ($scope.feedback.mychannel == "")) {
+    if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
       $scope.invalidChannelSelection = true;
       console.log('incorrect');
     }
@@ -180,7 +180,7 @@ angular.module('confusionApp', [])
         author: "",
         date: ""
       };      
-  }
+  };
 
 }])
 
