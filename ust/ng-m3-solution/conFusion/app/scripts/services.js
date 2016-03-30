@@ -170,4 +170,4 @@ angular.module('confusionApp')
   	return dishes[index];
   };
 
-})
+});
