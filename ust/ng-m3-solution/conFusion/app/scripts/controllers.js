@@ -86,24 +86,35 @@ angular.module('confusionApp')
 
   $scope.submitComment = function () {
 
-      //Step 2: This is how you record the date
-      $scope.reply.date = new Date().toISOString();
-      
-      // Step 3: Push your comment into the dish's comment array
-      $scope.dish.comments.push($scope.reply);
-      
-      //Step 4: reset your form to pristine
-      $scope.commentForm.$setPristine();
-      
-      //Step 5: reset your JavaScript object that holds your comment
-      $scope.reply = {
-        rating: "5",
-        comment:"",
-        author: "",
-        date: ""
-      };      
+    //Step 2: This is how you record the date
+    $scope.reply.date = new Date().toISOString();
+
+    // Step 3: Push your comment into the dish's comment array
+    $scope.dish.comments.push($scope.reply);
+
+    //Step 4: reset your form to pristine
+    $scope.commentForm.$setPristine();
+
+    //Step 5: reset your JavaScript object that holds your comment
+    $scope.reply = {
+      rating: "5",
+      comment:"",
+      author: "",
+      date: ""
+    };      
   };
 
+}])
+
+.controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
+  $scope.featured = menuFactory.getDish(0);
+  $scope.promo = menuFactory.getPromotion(0);
+  $scope.chef = corporateFactory.getLeader(3);
+}])
+
+.controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
+  $scope.leaders = corporateFactory.getLeaders();
+  
 }])
 
 ;
