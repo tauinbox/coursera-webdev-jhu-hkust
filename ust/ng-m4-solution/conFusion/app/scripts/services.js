@@ -15,11 +15,11 @@ angular.module('confusionApp')
 	}];
     
   this.getDishes = function() {
-  	return $http.get(baseURL+"dishes");
+  	return $http.get(baseURL + "dishes");
   };
 
   this.getDish = function(index) {
-  	return $http.get(baseURL+"dishes" + index);
+  	return $http.get(baseURL + "dishes/" + index);
   };
 
 	// implement a function named getPromotion
