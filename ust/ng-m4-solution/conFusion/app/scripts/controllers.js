@@ -7,7 +7,11 @@ angular.module('confusionApp')
   $scope.filtText = '';
   $scope.showDetails = false;
 
-  $scope.dishes = menuFactory.getDishes();
+  $scope.dishes = {};
+
+  menuFactory.getDishes().then(function(response) {
+    $scope.dishes = response.data;
+  });
 
   $scope.select = function(setTab) {
     $scope.tab = setTab;
@@ -68,9 +72,11 @@ angular.module('confusionApp')
 
 .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
 
-  var dish = menuFactory.getDish(parseInt($stateParams.id, 10));
-
-  $scope.dish = dish;
+  $scope.dish = {};
+  menuFactory.getDish(parseInt($stateParams.id, 10)).then(function(response) {
+    $scope.dish = response.data;
+    $scope.showDish = true;
+  });
 
 }])
 
@@ -78,10 +84,10 @@ angular.module('confusionApp')
 
   //Step 1: Create a JavaScript object to hold the comment from the form
   $scope.reply = {
-     rating: "5",
-     comment: "",
-     author: "",
-     date: ""
+    rating: "5",
+    comment: "",
+    author: "",
+    date: ""
   };
 
   $scope.submitComment = function () {
@@ -107,7 +113,12 @@ angular.module('confusionApp')
 }])
 
 .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
-  $scope.featured = menuFactory.getDish(0);
+  $scope.featured = {};
+  menuFactory.getDish(0).then(function(response) {
+    $scope.featured = response.data;
+    $scope.showDish = true;
+  });
+  
   $scope.promo = menuFactory.getPromotion(0);
   $scope.chef = corporateFactory.getLeader(3);
 }])
