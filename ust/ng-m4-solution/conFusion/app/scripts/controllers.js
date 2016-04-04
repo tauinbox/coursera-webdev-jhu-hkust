@@ -7,19 +7,22 @@ angular.module('confusionApp')
   $scope.filtText = '';
   $scope.showDetails = false;
 
-  $scope.dishes = {};
   $scope.message = "Loading...";
-  $scope.showMenu = false;
+  $scope.showMenu = true;
 
-  menuFactory.getDishes().then(
-    function(response) {
-      $scope.dishes = response.data;
-      $scope.showMenu = true;
-    },
-    function(response) {
-      $scope.message = "Error: " + response.status + " " + response.statusText;
-    }
-  );
+  // $scope.dishes = {};
+
+  // menuFactory.getDishes().then(
+  //   function(response) {
+  //     $scope.dishes = response.data;
+  //     $scope.showMenu = true;
+  //   },
+  //   function(response) {
+  //     $scope.message = "Error: " + response.status + " " + response.statusText;
+  //   }
+  // );
+
+  $scope.dishes = menuFactory.getDishes().query();
 
   $scope.select = function(setTab) {
     $scope.tab = setTab;
@@ -80,19 +83,22 @@ angular.module('confusionApp')
 
 .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
 
-  $scope.dish = {};
   $scope.message = "Loading...";
-  $scope.showDish = false;
+  $scope.showDish = true;
 
-  menuFactory.getDish(parseInt($stateParams.id, 10)).then(
-    function(response) {
-      $scope.dish = response.data;
-      $scope.showDish = true;
-    },
-    function(response) {
-      $scope.message = "Error: " + response.status + " " + response.statusText;
-    }
-  );
+  // $scope.dish = {};  
+
+  // menuFactory.getDish(parseInt($stateParams.id, 10)).then(
+  //   function(response) {
+  //     $scope.dish = response.data;
+  //     $scope.showDish = true;
+  //   },
+  //   function(response) {
+  //     $scope.message = "Error: " + response.status + " " + response.statusText;
+  //   }
+  // );
+
+  $scope.dish = menuFactory.getDishes().get({id: parseInt($stateParams.id, 10)});
 
 }])
 
@@ -129,19 +135,22 @@ angular.module('confusionApp')
 }])
 
 .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
-  $scope.featured = {};
   $scope.message = "Loading...";
-  $scope.showDish = false;
+  $scope.showDish = true;
 
-  menuFactory.getDish(0).then(
-    function(response) {
-      $scope.featured = response.data;
-      $scope.showDish = true;
-    },
-    function(response) {
-      $scope.message = "Error: " + response.status + " " + response.statusText;
-    }
-  );
+  // $scope.featured = {};
+
+  // menuFactory.getDish(0).then(
+  //   function(response) {
+  //     $scope.featured = response.data;
+  //     $scope.showDish = true;
+  //   },
+  //   function(response) {
+  //     $scope.message = "Error: " + response.status + " " + response.statusText;
+  //   }
+  // );
+
+  $scope.featured = menuFactory.getDishes().get({id: 0});
 
   $scope.promo = menuFactory.getPromotion(0);
   $scope.chef = corporateFactory.getLeader(3);
