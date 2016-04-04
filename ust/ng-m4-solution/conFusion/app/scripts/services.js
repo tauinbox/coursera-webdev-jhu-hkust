@@ -45,4 +45,14 @@ var corpfac = {};
 
 }])
 
+.factory('feedbackFactory', ['$resource', 'baseURL', function($resource, baseURL){
+	var fbfact = {};
+
+	fbfact.feedback = function() {
+		return $resource(baseURL + "feedback/:id", null, {'update': {method: 'PUT'}});
+	};
+
+	return fbfact;
+}])
+
 ;
