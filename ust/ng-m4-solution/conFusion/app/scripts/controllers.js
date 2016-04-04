@@ -118,7 +118,7 @@ angular.module('confusionApp')
 
 }])
 
-.controller('DishCommentController', ['$scope', function($scope) {
+.controller('DishCommentController', ['$scope', 'menuFactory', function($scope, menuFactory) {
 
   //Step 1: Create a JavaScript object to hold the comment from the form
   $scope.reply = {
@@ -135,6 +135,9 @@ angular.module('confusionApp')
 
     // Step 3: Push your comment into the dish's comment array
     $scope.dish.comments.push($scope.reply);
+
+    // Update our new data on the server side
+    menuFactory.getDishes().update({id: $scope.dish.id}, $scope.dish);
 
     //Step 4: reset your form to pristine
     $scope.commentForm.$setPristine();
