@@ -1,7 +1,7 @@
 <ion-view view-title="Dish Details">
   <ion-nav-buttons side="secondary">
     <div class="buttons">
-      <button class="button button-icon icon ion-more" ng-click="showPopover()"></button>
+      <button class="button button-icon icon ion-more" ng-click="showDishPopover($event)"></button>
     </div>
   </ion-nav-buttons>
   <ion-content>
@@ -9,7 +9,8 @@
       <div class="item item-body item-text-wrap">
         <img class="full-image" ng-src="{{baseURL+dish.image}}" alt="Uthappizza">
         <h2>
-          {{dish.name}}<span style="font-size:75%">{{dish.price | currency}}</span><span class="badge badge-assertive">{{dish.label}}</span>
+          {{dish.name}}
+          <span style="font-size:75%">{{dish.price | currency}}</span><span class="badge badge-assertive">{{dish.label}}</span>
         </h2>
         <p>{{dish.description}}</p>
       </div>
