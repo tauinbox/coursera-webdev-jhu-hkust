@@ -159,23 +159,14 @@ angular.module('conFusion.controllers', [])
 }])
 
 .controller('DishDetailController', [
-'$scope', '$stateParams', '$ionicPopover', '$ionicModal', 'menuFactory', 'favoriteFactory', 'baseURL', 
-function($scope, $stateParams, $ionicPopover, $ionicModal, menuFactory, favoriteFactory, baseURL) {
+'$scope', '$stateParams', '$ionicPopover', '$ionicModal', 'dish', 'menuFactory', 'favoriteFactory', 'baseURL', 
+function($scope, $stateParams, $ionicPopover, $ionicModal, dish, menuFactory, favoriteFactory, baseURL) {
 
   $scope.baseURL = baseURL;
   $scope.showDish = false;
   $scope.message="Loading ...";
 
-  $scope.dish = menuFactory.get({id: parseInt($stateParams.id,10)})
-  .$promise.then(
-    function(response){
-      $scope.dish = response;
-      $scope.showDish = true;
-    },
-    function(response) {
-      $scope.message = "Error: " + response.status + " " + response.statusText;
-    }
-  );
+  $scope.dish = dish;
 
   $ionicPopover.fromTemplateUrl('templates/dish-detail-popover.html', {
     scope: $scope
@@ -219,7 +210,7 @@ function($scope, $stateParams, $ionicPopover, $ionicModal, menuFactory, favorite
     console.log('Submit Comment', $scope.newComment);
 
     $scope.dish.comments.push($scope.newComment);
-    menuFactory.getDishes().update({id: $scope.dish.id}, $scope.dish);
+    menuFactory.update({id: $scope.dish.id}, $scope.dish);
 
     $scope.closeComment();
     $scope.hideDishPopover();
@@ -266,7 +257,7 @@ function($scope, menuFactory, corporateFactory, promotionFactory, baseURL) {
       $scope.message = "Error: "+response.status + " " + response.statusText;
     }
     );
-  
+
   $scope.promotion = promotionFactory.get({id: 0});
 
 }])
@@ -280,32 +271,14 @@ function($scope, menuFactory, corporateFactory, promotionFactory, baseURL) {
 }])
 
 .controller('FavoritesController', [
-'$scope', 'menuFactory', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout',
-function ($scope, menuFactory, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout) {
+'$scope', 'dishes', 'favorites', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout',
+function ($scope, dishes, favorites, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout) {
 
   $scope.baseURL = baseURL;
   $scope.shouldShowDelete = false;
 
-  $ionicLoading.show({
-    template: '<ion-spinner></ion-spinner> Loading...'
-  });  
-
-  $scope.favorites = favoriteFactory.getFavorites();
-
-  $scope.dishes = menuFactory.query(
-    function (response) {
-      $scope.dishes = response;
-      $timeout(function () {
-        $ionicLoading.hide();
-      }, 1000);
-    },
-    function (response) {
-      $scope.message = "Error: " + response.status + " " + response.statusText;
-      $timeout(function () {
-        $ionicLoading.hide();
-      }, 1000);        
-    }
-  );
+  $scope.favorites = favorites;
+  $scope.dishes = dishes;
 
   console.log($scope.dishes, $scope.favorites);
 
