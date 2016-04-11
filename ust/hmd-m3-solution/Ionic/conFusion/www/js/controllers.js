@@ -241,25 +241,15 @@ function($scope, $stateParams, $ionicPopover, $ionicModal, dish, menuFactory, fa
 // implement the IndexController and About Controller here
 
 .controller('IndexController', [
-'$scope', 'menuFactory', 'corporateFactory', 'promotionFactory', 'baseURL', 
-function($scope, menuFactory, corporateFactory, promotionFactory, baseURL) {
+'$scope', 'menuFactory', 'corporateFactory', 'promotionFactory', 'dish', 'promotion', 'leader', 'baseURL', 
+function($scope, menuFactory, corporateFactory, promotionFactory, dish, promotion, leader, baseURL) {
 
   $scope.baseURL = baseURL;
-  $scope.leader = corporateFactory.get({id:3});
   $scope.showDish = false;
+  $scope.dish = dish;
+  $scope.promotion = promotion;
+  $scope.leader = leader;  
   $scope.message="Loading ...";
-  $scope.dish = menuFactory.get({id:0})
-  .$promise.then(
-    function(response){
-      $scope.dish = response;
-      $scope.showDish = true;
-    },
-    function(response) {
-      $scope.message = "Error: "+response.status + " " + response.statusText;
-    }
-    );
-
-  $scope.promotion = promotionFactory.get({id: 0});
 
 }])
 
