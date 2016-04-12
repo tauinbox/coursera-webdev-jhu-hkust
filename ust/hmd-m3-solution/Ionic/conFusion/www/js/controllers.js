@@ -138,7 +138,7 @@ angular.module('conFusion.controllers', [])
 
 }])
 
-.controller('FeedbackController', ['$scope', 'feedbackFactory', function($scope,feedbackFactory) {
+.controller('FeedbackController', ['$scope', 'feedbackFactory', function($scope, feedbackFactory) {
 
   $scope.sendFeedback = function() {
 
@@ -241,8 +241,8 @@ function($scope, $stateParams, $ionicPopover, $ionicModal, dish, menuFactory, fa
 // implement the IndexController and About Controller here
 
 .controller('IndexController', [
-'$scope', 'menuFactory', 'corporateFactory', 'promotionFactory', 'dish', 'promotion', 'leader', 'baseURL', 
-function($scope, menuFactory, corporateFactory, promotionFactory, dish, promotion, leader, baseURL) {
+'$scope', 'dish', 'promotion', 'leader', 'baseURL', 
+function($scope, dish, promotion, leader, baseURL) {
 
   $scope.baseURL = baseURL;
   $scope.dish = dish;
@@ -262,8 +262,8 @@ function($scope, menuFactory, corporateFactory, promotionFactory, dish, promotio
 }])
 
 .controller('FavoritesController', [
-'$scope', 'dishes', 'favorites', 'favoriteFactory', 'baseURL', '$ionicListDelegate', '$ionicPopup', '$ionicLoading', '$timeout', '$localStorage',
-function ($scope, dishes, favorites, favoriteFactory, baseURL, $ionicListDelegate, $ionicPopup, $ionicLoading, $timeout, $localStorage) {
+'$scope', 'dishes', 'favorites', 'favoriteFactory', 'baseURL', '$ionicPopup', '$timeout', '$localStorage',
+function ($scope, dishes, favorites, favoriteFactory, baseURL, $ionicPopup, $timeout, $localStorage) {
 
   $scope.baseURL = baseURL;
   $scope.shouldShowDelete = false;
