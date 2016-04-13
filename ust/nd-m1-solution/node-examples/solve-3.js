@@ -16,6 +16,6 @@ function solveRect(l,b) {
       console.log("The perimeter of a rectangle of dimensions length = " + l + " and breadth = " + b + " is " + rectangle.perimeter());
   	}
   });
-};
+}
 
 solveRect(argv.l,argv.b);
