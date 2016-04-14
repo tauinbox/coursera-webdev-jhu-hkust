@@ -1,8 +1,12 @@
-module.exports = function(bodyParser, expressRouter, callback) {
+module.exports = function(app, callback) {
 
   try {
     callback(null, {
       initroutes: function() {
+        var express = require('express');
+        var bodyParser = require('body-parser');
+        var expressRouter = express.Router();
+
         expressRouter.use(bodyParser.json());
 
         expressRouter.route('/')
@@ -41,6 +45,8 @@ module.exports = function(bodyParser, expressRouter, callback) {
         .delete(function(req, res, next){
           res.end('Deleting dish: ' + req.params.dishId);
         });
+
+        app.use('/dishes', expressRouter);
 
       }
     });
