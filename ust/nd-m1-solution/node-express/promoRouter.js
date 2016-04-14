@@ -16,15 +16,15 @@ module.exports = function(app, callback) {
         })
 
         .get(function(req, res, next) {
-          res.end('Will send all the dishes to you!');
+          res.end('Will send all the promotions to you!');
         })
 
         .post(function(req, res, next) {
-          res.end('Will add the dish: ' + req.body.name + ' with details: ' + req.body.description);    
+          res.end('Will add the promotion: ' + req.body.name + ' with details: ' + req.body.description);    
         })
 
         .delete(function(req, res, next) {
-          res.end('Deleting all dishes');
+          res.end('Deleting all promotions');
         });
 
         expressRouter.route('/:id')
@@ -34,19 +34,19 @@ module.exports = function(app, callback) {
         })
 
         .get(function(req, res, next) {
-          res.end('Will send details of the dish: ' + req.params.id +' to you!');
+          res.end('Will send details of the promo: ' + req.params.id +' to you!');
         })
 
         .put(function(req, res, next) {
-          res.write('Updating the dish: ' + req.params.id + '\n');
-          res.end('Will update the dish: ' + req.body.name + ' with details: ' + req.body.description);
+          res.write('Updating the promo: ' + req.params.id + '\n');
+          res.end('Will update the promo: ' + req.body.name + ' with details: ' + req.body.description);
         })
 
         .delete(function(req, res, next){
-          res.end('Deleting dish: ' + req.params.id);
+          res.end('Deleting promo: ' + req.params.id);
         });
 
-        app.use('/dishes', expressRouter);
+        app.use('/promotions', expressRouter);
 
       }
     });
