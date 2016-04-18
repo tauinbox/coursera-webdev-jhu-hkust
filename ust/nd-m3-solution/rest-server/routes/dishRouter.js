@@ -10,9 +10,9 @@ dishRouter.use(bodyParser.json());
 
 dishRouter.route('/')
 .get(function(req, res, next) {
-  Dishes.find({}, function(err, dish) {
+  Dishes.find({}, function(err, dishes) {
     if (err) throw err;
-    res.json(dish);
+    res.json(dishes);
   });
 })
 
@@ -33,6 +33,8 @@ dishRouter.route('/')
     res.json(resp);
   });
 });
+
+//////////////////////////////////////////////
 
 dishRouter.route('/:dishId')
 .get(function(req, res, next) {
