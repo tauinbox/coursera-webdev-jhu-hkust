@@ -12,7 +12,7 @@ favoriteRouter .use(bodyParser.json());
 
 favoriteRouter.route('/')
 .get(Verify.verifyOrdinaryUser, function(req, res, next) {
-  Faforites.find({"postedBy": req.decoded._doc._id}).populate('postedBy').exec(function(err, favorites) {
+  Faforites.find({"postedBy": req.decoded._doc._id}).populate('postedBy dishes').exec(function(err, favorites) {
     if (err) throw err;
     res.json(favorites);
   });
