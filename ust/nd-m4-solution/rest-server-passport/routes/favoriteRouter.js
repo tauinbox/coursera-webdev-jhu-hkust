@@ -23,12 +23,30 @@ favoriteRouter.route('/')
   Faforites.find({"postedBy": req.decoded._doc._id}, function(err, favorite) {
     if (err) throw err;
     if (favorite.length === 0) {
-      favor = new Faforites({postedBy: req.decoded._doc._id, dishes: [req.body._id]});
-      console.log("Add new favorite: " + favor);
-      favor.save(function (err, result) {
+
+      ////one way:
+
+      Faforites.create({postedBy: req.decoded._doc._id, dishes: [req.body._id]}, function(err, favorite) {
         if (err) throw err;
-        res.json(result);
+        console.log('Favorite is created!');
+
+        // merely return created object:
+        res.json(favorite);
+
+        //// or say something like that:
+
+        // res.writeHead(200, {'Content-Type': 'text/plain'});
+        // res.end('Created new Favorite with id: ' + favorite._id);
       });
+
+      //// another way:
+
+      // favor = new Faforites({postedBy: req.decoded._doc._id, dishes: [req.body._id]});
+      // console.log("Added new favorite: " + favor);
+      // favor.save(function (err, result) {
+      //   if (err) throw err;
+      //   res.json(result);
+      // });
     }
     else {
       favorite = favorite[0];
