@@ -1,2 +1,1 @@
-# test
-test
+[My solutions](http://tauinbox.github.io/test/)
